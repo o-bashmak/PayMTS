@@ -1,0 +1,590 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="FindOutADebt" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:s="clr-namespace:ScrollActivity;assembly=ScrollActivity" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ResultMTS" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>390,791</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>ScrollActivity</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>ScrollActivity</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Find Out a debt" sap:VirtualizedContainerService.HintSize="400,766" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="228,51" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="b" KeyModifiers="Ctrl, Shift">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="c750c300-de9e-4db4-8ecc-546ccad160ac">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SendHotkey>
+    <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Ahani3 cy6KoHTo' (1142,256,102,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Click - AnalizSubc" sap:VirtualizedContainerService.HintSize="228,51" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="951a67d688e9c86b9512167933a9310f" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V3">
+      <p:CvClickWithDescriptor.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </p:CvClickWithDescriptor.CursorPosition>
+      <p:CvClickWithDescriptor.DesignTimeDescriptor>
+        <uc:CvDescriptor>
+          <uc:CvDescriptor.Target>
+            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1142, 256, 102, 16" ElementType="Text" Text="Ahani3 cy6KoHTo" />
+          </uc:CvDescriptor.Target>
+        </uc:CvDescriptor>
+      </p:CvClickWithDescriptor.DesignTimeDescriptor>
+      <p:CvClickWithDescriptor.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="fbada058-f7b0-4bc7-bb4b-aa3aa8ed775c">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </p:CvClickWithDescriptor.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p:CvClickWithDescriptor>
+    <Sequence DisplayName="Check_parametrs" sap:VirtualizedContainerService.HintSize="228,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (1273,439,18,17)&quot; +&#xA;&quot;Anchor: Text '6y (Aahhble 6yxrantepckoro yuera)' (1307,441,208,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - BY" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_1" InformativeScreenshot="c11dc4c8114250e85e9e82deec6d6e44" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1307, 441, 208, 16" ElementType="Text" Text="6y (Aahhble 6yxrantepckoro yuera)" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1273, 439, 18, 17" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Uncheck" Descriptor="[&quot;Target: CheckBox (1272,472,17,17)&quot; +&#xA;&quot;Anchor: Text 'Hy (AahHble HanoroBoro y4eta)' (1307,473,183,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - NU" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_2" InformativeScreenshot="648f0b65e46cccc432e2a2f3828a530e" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1307, 473, 183, 16" ElementType="Text" Text="Hy (AahHble HanoroBoro y4eta)" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1272, 472, 17, 17" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (1273,504,18,17)&quot; +&#xA;&quot;Anchor: Text 'BanoThaa cyMMa' (1307,505,103,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - ValSum" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_3" InformativeScreenshot="8b537c034945fcb039bd0c9f73c866ac" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1307, 505, 103, 16" ElementType="Text" Text="BanoThaa cyMMa" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1273, 504, 18, 17" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (1273,535,18,17)&quot; +&#xA;&quot;Anchor: Text 'KonmyecTBO' (1307,537,70,13)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - Kol-vo" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_4" InformativeScreenshot="6621bb16150ae5cfa8fdb16e2803fe92" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1307, 537, 70, 13" ElementType="Text" Text="KonmyecTBO" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1273, 535, 18, 17" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Uncheck" Descriptor="[&quot;Target: CheckBox (1272,568,18,17)&quot; +&#xA;&quot;Anchor: Text 'Pa3BephyToe canbA0' (1306,569,125,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - Saldo" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_5" InformativeScreenshot="5aeac400f4ca5733e66cb903f8bd2719" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1306, 569, 125, 16" ElementType="Text" Text="Pa3BephyToe canbA0" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1272, 568, 18, 17" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Игнорируемые действия" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: Text '3a nepMoA oT4eTa' (1376,632,104,15)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Text" EmptyField="True" sap:VirtualizedContainerService.HintSize="228,51" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="f63ed0259341f8950fcc82fca1f1948f" Text="[&quot;За период отчета[k(enter)]&quot;]" Version="V3">
+              <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1376, 632, 104, 15" ElementType="Text" Text="3a nepMoA oT4eTa" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+              <p:CvTypeIntoWithDescriptor.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="46cd78b3-26be-47a9-bcb4-564734b84e9f">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </p:CvTypeIntoWithDescriptor.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </p:CvTypeIntoWithDescriptor>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (1273,663,18,18)&quot; +&#xA;&quot;Anchor: Text 'Rlo cy6cueTaM' (1307,665,84,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - Subschet" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_6" InformativeScreenshot="9e676db6b7e303678a509bb549a82182" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1307, 665, 84, 16" ElementType="Text" Text="Rlo cy6cueTaM" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1273, 663, 18, 18" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Uncheck" Descriptor="[&quot;Target: CheckBox (1282,769,17,17)&quot; +&#xA;&quot;Anchor: Text 'NloApa3Aenehwe' (1331,771,94,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - Podrazdelenie" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_7" InformativeScreenshot="f1ea80fa4a146781ed740c5851e2c01d" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1331, 771, 94, 16" ElementType="Text" Text="NloApa3Aenehwe" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1282, 769, 17, 17" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (1282,797,18,18)&quot; +&#xA;&quot;Anchor: Text 'KohtparehTb' (1330,800,76,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - Kontragenty" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_8" InformativeScreenshot="3b25863bd138cb43168fea3e0dc6840d" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1330, 800, 76, 16" ElementType="Text" Text="KohtparehTb" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1282, 797, 18, 18" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (1282,826,18,18)&quot; +&#xA;&quot;Anchor: Text 'AoroBopbi' (1330,829,60,16)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Check - Dogovory" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_9" InformativeScreenshot="d9ce01dc09869889c3f6e791253587b4" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1330, 829, 60, 16" ElementType="Text" Text="AoroBopbi" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1282, 826, 18, 18" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvHoverWithDescriptor Descriptor="[&quot;Target: Text 'IpynnpoBka' (1268,602,96,17)&quot;]" DesignTimeCacheId="d40f59f1-a3cf-49e2-869f-03bdc65eb4ef" DesignTimeScaleFactor="1" DisplayName="CV Hover - Text" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="CvHoverWithDescriptor_1" InformativeScreenshot="5edc758b4c9f49b46c7badece449ca44" Version="V3">
+        <p:CvHoverWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1268, 602, 96, 17" ElementType="Text" Text="IpynnpoBka" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvHoverWithDescriptor.DesignTimeDescriptor>
+      </p:CvHoverWithDescriptor>
+      <s:ScrollActivity DisplayName="Scroll activity" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="ScrollActivity_1" amount="1500" up="False" />
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Check" Descriptor="[&quot;Target: CheckBox (1277,877,18,18)&quot; +&#xA;&quot;Anchor: Text 'Kohtpar...' (1347,880,60,16)&quot; +&#xA;&quot;Anchor: Text 'Pabho' (1424,880,38,13)&quot;]" DesignTimeCacheId="7bb257db-8498-42fc-a86e-034423ffa902" DesignTimeScaleFactor="1" DisplayName="CV Check - CheckBox" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_10" InformativeScreenshot="b302769bb3e9a6fa981db52f66d80b2f" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1347, 880, 60, 16" ElementType="Text" Text="Kohtpar..." />
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1424, 880, 38, 13" ElementType="Text" Text="Pabho" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1277, 877, 18, 18" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:CvCheckWithDescriptor>
+      <p:CvCheckWithDescriptor InRegion="{x:Null}" Action="Uncheck" Descriptor="[&quot;Target: CheckBox (1277,907,17,17)&quot; +&#xA;&quot;Anchor: Text 'Aorosopbi' (1346,908,61,17)&quot; +&#xA;&quot;Anchor: Text 'Pabho' (1423,909,40,14)&quot;]" DesignTimeCacheId="7bb257db-8498-42fc-a86e-034423ffa902" DesignTimeScaleFactor="1" DisplayName="CV Check - CheckBox" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="CvCheckWithDescriptor_11" InformativeScreenshot="f289976d91ac038c642235b269806ad8" Version="V3">
+        <p:CvCheckWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1346, 908, 61, 17" ElementType="Text" Text="Aorosopbi" />
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1423, 909, 40, 14" ElementType="Text" Text="Pabho" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1277, 907, 17, 17" ElementType="CheckBox" />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvCheckWithDescriptor.DesignTimeDescriptor>
+      </p:CvCheckWithDescriptor>
+      <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" Descriptor="[&quot;Target: TableCell (1265,839,382,90)&quot; +&#xA;&quot;ColumnName: 3hauehne (1546,839,101,33)&quot; +&#xA;&quot;RowContains: Kohtpar... (1315,872,99,27) RowCell: 2&quot; +&#xA;&quot;Anchor: Icon (1383,808,17,17)&quot;]" DesignTimeCacheId="7bb257db-8498-42fc-a86e-034423ffa902" DesignTimeScaleFactor="1" DisplayName="CV Click - Table Cell" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_4" InformativeScreenshot="ed9dda30e06a73788625405747698d7c" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V3">
+        <p:CvClickWithDescriptor.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </p:CvClickWithDescriptor.CursorPosition>
+        <p:CvClickWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Anchors>
+              <x:Array Type="uc:CvElementDescriptor">
+                <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1383, 808, 17, 17" ElementType="Icon" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGjSURBVDhPtVI/S0JRHL0fwUEFkaJRHExbgmrVxaXBxc8iKCJ9BhehKetpi5C21lok1mYvMKOpNHuIfzD1dM+Fd3tai1Q/OPB793fOefeeewX+oP7PZNzpoJHNorazA8PrVTjf28PdwYGaLdc3k6dKBafr67jY2MBdMIj7zU2FW9lzrby2pjjOWjDh8Njlwk0gADMc/hGckeM00iaj11f1F5LaiQSekkmYW1tfBrLnGmfkkDt6eVFabcLzXsrtUtDe38d8MkE3n9cm78Ui5h8fasZvcpkbS5swOJ7bFr0VCsB8DqtcVmDPNXvOvBg8S5vwBhigTSJ6h4dKTLB3zsg1PB6lFbPZDMSqJs1QCGW/X2nFdDoFUdvdXfk4VXkcasVEBkg0crnFYGWIvaMjLeJOGLYz2Homo7RiPB6DsJ6f9RW3olE8xuMwIxFtwp5rrVhMXzE11IrhcAgbD3LbfEh1SdLiJdiPjVxbJwaDAZwwDQMlGZjz2Tcdz54zs1Ra0Ih+v49ldNttXKVSONvexonbDcPnQ1UGf51Oq9kyX1iWhd/BwicW2oAHmKRqTAAAAABJRU5ErkJggg==" />
+              </x:Array>
+            </uc:CvDescriptor.Anchors>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor DesignTimeArea="1265, 839, 382, 90" ElementType="TableCell">
+                <uc:CvElementDescriptor.CellExtraInfo>
+                  <uc:CvCellExtraInfo CellArea="1546, 872, 101, 27" ColumnArea="1546, 839, 101, 33" ColumnIndex="4" ColumnName="3hauehne" RowArea="1315, 872, 99, 27" RowIndex="2" RowSearchColumnIndex="2" RowSearchValue="Kohtpar..." UseColumnIndex="False" UseRowIndex="False" />
+                </uc:CvElementDescriptor.CellExtraInfo>
+              </uc:CvElementDescriptor>
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvClickWithDescriptor.DesignTimeDescriptor>
+        <p:CvClickWithDescriptor.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="e30d54de-53e8-40e2-b9a4-4ba1fa791040">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </p:CvClickWithDescriptor.Target>
+      </p:CvClickWithDescriptor>
+      <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: Text 'MTC, r.' (1554,890,45,14)&quot;]" DesignTimeCacheId="aef44849-218e-4856-ab4b-187295f6a8a6" DesignTimeScaleFactor="1" DisplayName="CV Type Into - MTS" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_2" InformativeScreenshot="7752d7852be55dfa9d7cfc9f995aa7c5" Text="[&quot;МТС, г. Минск[k(enter)]&quot;]" Version="V3">
+        <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+          <uc:CvDescriptor>
+            <uc:CvDescriptor.Target>
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1554, 890, 45, 14" ElementType="Text" Text="MTC, r." />
+            </uc:CvDescriptor.Target>
+          </uc:CvDescriptor>
+        </p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+        <p:CvTypeIntoWithDescriptor.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="147cc7f6-9d2a-42a1-89cd-8278025601b5">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </p:CvTypeIntoWithDescriptor.Target>
+      </p:CvTypeIntoWithDescriptor>
+    </Sequence>
+    <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" Descriptor="[&quot;Target: Text 'CpopmnpoBatb OT4eT' (284,170,142,16)&quot;]" DesignTimeCacheId="aef44849-218e-4856-ab4b-187295f6a8a6" DesignTimeScaleFactor="1" DisplayName="CV Click - Report" sap:VirtualizedContainerService.HintSize="228,51" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_5" InformativeScreenshot="a8c4b960a98b8f6c195b16d2650ce533" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V3">
+      <p:CvClickWithDescriptor.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </p:CvClickWithDescriptor.CursorPosition>
+      <p:CvClickWithDescriptor.DesignTimeDescriptor>
+        <uc:CvDescriptor>
+          <uc:CvDescriptor.Target>
+            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="284, 170, 142, 16" ElementType="Text" Text="CpopmnpoBatb OT4eT" />
+          </uc:CvDescriptor.Target>
+        </uc:CvDescriptor>
+      </p:CvClickWithDescriptor.DesignTimeDescriptor>
+      <p:CvClickWithDescriptor.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="5b20087e-3587-4e27-9f0a-b06d9aa0a652">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </p:CvClickWithDescriptor.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p:CvClickWithDescriptor>
+    <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: TableCell (313,259,925,266)&quot; +&#xA;&quot;ColumnName: nepwoAa (1133,259,105,18)&quot; +&#xA;&quot;RowContains: Mroro (313,473,211,17) RowCell: 1&quot; +&#xA;&quot;Anchor: Text 'IpynnpoBka' (1268,512,96,17)&quot;]" DesignTimeCacheId="8b9b1f72-aa28-4ac8-b72c-df87352d4991" DesignTimeScaleFactor="1" DisplayName="CV Click - Table Cell" sap:VirtualizedContainerService.HintSize="228,51" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_6" InformativeScreenshot="b110727c50aba2f370cce9e1efecd995" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V3">
+      <p:CvClickWithDescriptor.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </p:CvClickWithDescriptor.CursorPosition>
+      <p:CvClickWithDescriptor.DesignTimeDescriptor>
+        <uc:CvDescriptor>
+          <uc:CvDescriptor.Anchors>
+            <x:Array Type="uc:CvElementDescriptor">
+              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1268, 512, 96, 17" ElementType="Text" Text="IpynnpoBka" />
+            </x:Array>
+          </uc:CvDescriptor.Anchors>
+          <uc:CvDescriptor.Target>
+            <uc:CvElementDescriptor DesignTimeArea="313, 259, 925, 266" ElementType="TableCell">
+              <uc:CvElementDescriptor.CellExtraInfo>
+                <uc:CvCellExtraInfo CellArea="1133, 473, 105, 17" ColumnArea="1133, 259, 105, 18" ColumnIndex="8" ColumnName="nepwoAa" RowArea="313, 473, 211, 17" RowIndex="13" RowSearchColumnIndex="1" RowSearchValue="Mroro" UseColumnIndex="False" UseRowIndex="False" />
+              </uc:CvElementDescriptor.CellExtraInfo>
+            </uc:CvElementDescriptor>
+          </uc:CvDescriptor.Target>
+        </uc:CvDescriptor>
+      </p:CvClickWithDescriptor.DesignTimeDescriptor>
+      <p:CvClickWithDescriptor.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="1a38e703-a725-49a8-a221-a85c1eea9059">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </p:CvClickWithDescriptor.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p:CvClickWithDescriptor>
+    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Ctr+c" sap:VirtualizedContainerService.HintSize="228,51" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="c" KeyModifiers="Ctrl" SpecialKey="False">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="2b604a21-c5e6-4f4d-b295-0a4b8c79c81f">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SendHotkey>
+    <ui:GetFromClipboard TimeoutMS="{x:Null}" DisplayName="Get a DEBT From Clipboard" sap:VirtualizedContainerService.HintSize="228,22" sap2010:WorkflowViewState.IdRef="GetFromClipboard_1">
+      <ui:GetFromClipboard.Result>
+        <OutArgument x:TypeArguments="x:String">[ResultMTS]</OutArgument>
+      </ui:GetFromClipboard.Result>
+    </ui:GetFromClipboard>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="228,51" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[ResultMTS]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MessageBox>
+  </Sequence>
+</Activity>
